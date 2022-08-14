@@ -1,0 +1,61 @@
+00-INTRO
+01-MATTHIEU
+02-MARC
+03-LUC
+04-JEAN
+05-ACTES
+06-ROMAINS
+07-1CORINTHIENS
+08-2CORINTHIENS
+09-GALATES
+10-EPHESIENS
+11-PHILIPPIENS
+12-COLOSSIENS
+13-1THESSALONICIENS
+14-2THESSALONICIENS
+15-1TIMOTHEE
+16-2TIMOTHEE
+17-TITE
+18-PHILEMON
+19-HEBREUX
+20-JACQUES
+21-1PIERRE
+22-2PIERRE
+23-1JEAN
+24-2JEAN
+25-3JEAN
+26-JUDAS
+27-APOCALYPSE
+28-END
+
+
+
+if  (  pic  >=  1    &&  pic  <=  54   )  rep="00-INTRO"
+if  (  pic  >=  55   &&  pic  <=  120  )  rep="01-MATTHIEU"
+if  (  pic  >=  121  &&  pic  <=  161  )  rep="02-MARC"
+if  (  pic  >=  162  &&  pic  <=  230  )  rep="03-LUC"
+if  (  pic  >=  231  &&  pic  <=  281  )  rep="04-JEAN"
+if  (  pic  >=  282  &&  pic  <=  349  )  rep="05-ACTES"
+if  (  pic  >=  350  &&  pic  <=  375  )  rep="06-ROMAINS"
+if  (  pic  >=  376  &&  pic  <=  400  )  rep="07-1CORINTHIENS"
+if  (  pic  >=  401  &&  pic  <=  417  )  rep="08-2CORINTHIENS"
+if  (  pic  >=  418  &&  pic  <=  426  )  rep="09-GALATES"
+if  (  pic  >=  427  &&  pic  <=  435  )  rep="10-EPHESIENS"
+if  (  pic  >=  436  &&  pic  <=  441  )  rep="11-PHILIPPIENS"
+if  (  pic  >=  442  &&  pic  <=  447  )  rep="12-COLOSSIENS"
+if  (  pic  >=  448  &&  pic  <=  453  )  rep="13-1THESSALONICIENS"
+if  (  pic  >=  454  &&  pic  <=  456  )  rep="14-2THESSALONICIENS"
+if  (  pic  >=  457  &&  pic  <=  463  )  rep="15-1TIMOTHEE"
+if  (  pic  >=  464  &&  pic  <=  468  )  rep="16-2TIMOTHEE"
+if  (  pic  >=  469  &&  pic  <=  471  )  rep="17-TITE"
+if  (  pic  >=  472  &&  pic  <=  473  )  rep="18-PHILEMON"
+if  (  pic  >=  474  &&  pic  <=  493  )  rep="19-HEBREUX"
+if  (  pic  >=  494  &&  pic  <=  500  )  rep="20-JACQUES"
+if  (  pic  >=  501  &&  pic  <=  507  )  rep="21-1PIERRE"
+if  (  pic  >=  508  &&  pic  <=  512  )  rep="22-2PIERRE"
+if  (  pic  >=  513  &&  pic  <=  519  )  rep="23-1JEAN"
+if  (  pic  >=  520  &&  pic  <=  521  )  rep="24-2JEAN"
+if  (  pic  >=  522  &&  pic  <=  523  )  rep="25-3JEAN"
+if  (  pic  >=  524  &&  pic  <=  525  )  rep="26-JUDAS"
+if  (  pic  >=  526  &&  pic  <=  557  )  rep="27-APOCALYPSE"
+if  (  pic  >=  558  &&  pic  <=  563  )  rep="28-END"
