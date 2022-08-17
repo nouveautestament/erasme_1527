@@ -1,11 +1,12 @@
-N PRIN¬
+
+---CH1
+IN PRIN¬
 cipio erat ser¬
 mo, & sermo
 erat apud de¬
 um, & deus e¬
 rat ille sermo.
 Hic erat in
-Nor
 principio apud deum. Omia per
 ipsum facta sunt: & sine eo factum
 est nihil, quod factum est. In ipso
@@ -49,4 +50,4 @@ testimonium lohannis, quando mise
 rant ludaei ab Hierosolymis sacer
 dotes & leuitas, ut interrogarent
 eum: Tu quis es? Et confessus est
-& noi
+& non

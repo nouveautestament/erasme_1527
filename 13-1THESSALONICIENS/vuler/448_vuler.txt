@@ -1,11 +1,11 @@
-AVLVS & Sil
+---CH1
+PAVLVS & Sil
 uanus & Timo
 theus ecclesiae
 Thessalonicen
 sium, in deo pa
 tre & domino
-to. Gratia uobis et pax
-lesu Ch
+Iesu Christo. Gratia uobis et pax
 à deo patre nostro & domino le
 su Christo. Gratias agimus deo
 semper de omnibus uobis, men¬
@@ -42,7 +42,9 @@ si fueritis ad deum à simulacris, ut
 seruiretis deo uiueti & ueraci, &
 expectaretis filium eis de coelis, quem
 excitauit à mortuis lesum, qui li¬
-berat nos ab ira uentura. Nam
+berat nos ab ira uentura. 
+---CH2
+Nam
 ipsi nostis fratres, introitum nostrum
 ad uos, quod no fuerit inanis, sed
 quod ante malis afflicti et contu¬

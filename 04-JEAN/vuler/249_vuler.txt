@@ -47,7 +47,9 @@ us es? Scrutare & uide, quod à
 Galilaea propheta non surrexerit.
 Et profectus est unusquisque in
 domum suam.
-lesus autem perrexit in montem
+
+---CH8
+Iesus autem perrexit in montem
 Oliuarum: & diluculo iterum uenit
 in templum, cunctusque populus
 uenit ad eum, & sedens docebat eos

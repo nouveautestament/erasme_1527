@@ -45,7 +45,10 @@ mihi mandatum dedit, quid dicam
 & quid loquar. Et scio, quod man
 datum eius uita aeterna est. Quae
 ergo ego loquor, sicut dixit mihi
-pater, sic loquor. Ante festum
+pater, sic loquor. 
+
+---CH13
+Ante festum
 autem paschae sciens lesus, quod
 uenisset hora ipsius, ut transiret
 ex hoc mundo ad patrem, cum

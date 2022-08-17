@@ -1,11 +1,11 @@
-VOD erat ab
-VEU
+---CH1
+QVOD erat ab
 initio, quod au
 diuimus, quod
 uidimus oculis
 nostris quid per¬
-spexim? & ma
-nus nostrae co¬
+speximus & ma
+nus nostrae con¬
 trectauerunt de sermone uitae, &
 uita manifestata est, uidimus: eti¬
 am testamur, & annunciamus uo
@@ -39,6 +39,7 @@ ab omni iniquitate. Si dixerimus:
 non peccauimus, mendacem fa¬
 cimus eum, & sermo eius non est
 in nobis.
+---CH2
 Filioli mei, haec scribo uobis
 ne peccetis: & si quis peccaue/
 rit, aduocatum habemus apud pa

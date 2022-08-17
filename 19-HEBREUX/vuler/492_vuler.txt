@@ -2,7 +2,9 @@ ERASMVS.
 ita colamus deum, ut illi placea¬
 mus cum reuerentia & religione.
 Etenim deus noster ignis con¬
-sumens est. Fraterna charitas ma¬
+sumens est. 
+---CH13
+Fraterna charitas ma¬
 neat. Hospitalitatis ne sitis imme¬
 mores. Per hanc em quidam inscien¬
 tes exceperunt angelos hospitio.
@@ -51,4 +53,4 @@ ctimis placetur deo. Parete ijs qui
 praesunt uobis, & concedite, si¬
 quidem illi uigilant pro anima¬
 bus uestris, tanquam rationem
-redd
+

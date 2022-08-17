@@ -1,4 +1,3 @@
-OSÉnp..
 ERASMVS.
 nonne sedens prius cogitat, an pos
 sit cum decem milibus occurrere
@@ -13,7 +12,10 @@ sal infatuatus fuerit, per quod co¬
 dietur? Neque in terram, neque in ster¬
 quilinium utilis est, foras proijciunt
 illum. Qui habet aures ad audien¬
-dum, audiat. Accedebant aute
+dum, audiat. 
+
+---CH15
+Accedebant autem
 ad eum omnes publicani & pec¬
 catores, ut audirent illum. Et mur
 murabant pharisaei ac scribae, dicen

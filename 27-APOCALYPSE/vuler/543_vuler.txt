@@ -36,7 +36,9 @@ Hic sapientia est. Qui habet in¬
 tellectum, computet numerum be¬
 stiae. Numerus enim hominis est
 & numerus eius sexcenti sexagin
-ta sex. Et uidi, & ecce agnus
+ta sex. 
+---CH14
+Et uidi, & ecce agnus
 stans super montem Sion, & cum
 eo centum quadragintaquatuor
 milia habentia nomen patris e¬

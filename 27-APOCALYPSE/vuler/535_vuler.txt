@@ -47,7 +47,9 @@ agnus qui in medio throni est, re
 get illos, & deducet eos ad uiuos
 fontes aquarum, & abstersurus est
 deus omne lachrymam ab oculis
-eorum. Et cum aperuisset sigillum
+eorum.
+---CH8
+Et cum aperuisset sigillum
 septimum, factum est silentium in coelo
 media fermè hora. Et uidi septem
 angelos stantes in comspectu dei, &
