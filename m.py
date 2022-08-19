@@ -1,6 +1,3 @@
-#kecehe5170@wnpop.com
-#https://temp-mail.org/fr/
-
 import cv2
 import pytesseract
 import sys

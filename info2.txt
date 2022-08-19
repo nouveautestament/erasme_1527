@@ -27,3 +27,12 @@ if  (  pic  >=  522  &&  pic  <=  523  )  rep="25-3JEAN"
 if  (  pic  >=  524  &&  pic  <=  525  )  rep="26-JUDAS"
 if  (  pic  >=  526  &&  pic  <=  557  )  rep="27-APOCALYPSE"
 if  (  pic  >=  558  &&  pic  <=  563  )  rep="28-END"
+
+
+
+
+
+GEN
+===
+
+deb=$(find ./ -maxdepth 1 -type f -name "*.jpg" | grep -Eo "[0-9]+" | head -n 1) && fin=$(find ./ -maxdepth 1 -type f -name "*.jpg" | grep -Eo "[0-9]+" | tail -n 1) && for x in `find ./ -maxdepth 1 -type f -name "*.jpg" | grep -Eo "[0-9]+"`; do clear; echo == ${x} ==; node maker.js ${deb}:${fin} page ${x}; /mnt/e/XnViewMP/xnviewmp.exe ./vuler/${x}_vuler.jpg; done && echo newfile && read && node maker.js ${deb}:${fin} all >> ${PWD##*/}.txt
