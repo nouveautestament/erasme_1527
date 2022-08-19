@@ -17,12 +17,13 @@ all_txt = []
 
 
 
+twopic = process.argv[2].split(':')
 
 
 
 
-
-for (picture = 162 ; picture <= 230 ; picture++)
+//for (picture = 442 ; picture <= 447 ; picture++)
+for (picture = twopic[0] ; picture <= twopic[1] ; picture++)
 {
 
 
@@ -132,11 +133,13 @@ for (picture = 162 ; picture <= 230 ; picture++)
 				}
 				
 				
-				if (lignes[ligne] == "ERASMVS") //226 LUC
+				if (lignes[ligne] == "ERASMVS" || lignes[ligne] == "ERASMI" || lignes[ligne] == "VERSIO.")
 				{
 					textepage = ""
 					all_txt[picture] = ""
 				}
+				
+				
 				
 			}
 			
@@ -157,7 +160,7 @@ for (picture = 162 ; picture <= 230 ; picture++)
 	
 	
 	//REMOVE END ONE WORD
-	if (back_ligne_end.replace(/^ +| +$/,"").split(" ").length == 1)
+	if (back_ligne_end.replace(/^ +| +$/,"").split(" ").length == 1 && picture != twopic[1])
 	{
 
 		
@@ -182,7 +185,20 @@ for (picture = 162 ; picture <= 230 ; picture++)
 }
 
 
+
+
 allt = allt.replace(/¬ +/g,"")
-console.log(allt)
-//console.log(all_txt[parseInt(process.argv[2])])
+
+
+
+if (process.argv[3] == "page")
+	console.log("\n\n\n"+all_txt[parseInt(process.argv[4])])
+
+if (process.argv[3] == "all")
+	console.log(allt)
+
+
+
+
+
 
