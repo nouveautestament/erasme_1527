@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html id="a" lang="fr">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Nouveau Testament">
+		<meta name="keywords" content="Nouveau Testament">
+	
+	
+	
+	
+		<title>[ V E R S I F I C A T E U R ]</title>
+
+<script src='data/nova_vulgata.js'></script>
+<script src='data/vulgate_web.js'></script>
+<script src='data/erasme_1527.js'></script>
+
+		
+		<style>
+			html {
+				margin:0;
+				padding:0;
+				
+				width:100%;
+				height:100%;
+			}
+			
+			body {
+				margin:0;
+				padding:0;
+				
+				width:100%;
+				height:100%;
+				
+				font-family:		sans-serif;
+			}
+		
+			
+			a {
+				color:black;
+				text-decoration:none;
+			}
+			a:hover {
+				color:blue;
+				text-decoration:underline;
+			}
+			
+		
+			#up {
+				margin:0;
+				padding:0;
+				
+				width:100%;
+				height:80%;
+
+				overflow: auto;
+
+			}
+
+			#down {
+				
+				margin:0;
+				padding:0;
+				
+				width:100%;
+				height:20%;
+
+				overflow: auto;
+			
+			}
+
+			#boxup, #boxdown {
+				padding:12px;
+			}
+			
+			div#boxup {
+				padding: 32px;
+			}
+			
+			#boxdown {
+			-webkit-touch-callout: all; /* iOS Safari */
+			-webkit-user-select: all; /* Safari */
+			-khtml-user-select: all; /* Konqueror HTML */
+			-moz-user-select: all; /* Firefox */
+			-ms-user-select: all; /* Internet Explorer/Edge */
+			user-select: all; /* Chrome and Opera */
+			}
+			
+			#input_info {
+				width:99%;
+				border:none;
+				font-size:16px;
+			}
+			
+			#intro {
+				
+				font-family:serif;
+				font-size:40px;
+				
+			}
+
+
+			#table {
+				margin:3px;
+			}
+
+			#table1 {
+				font-size: 15px;
+			}
+			
+			#table2 {
+				font-size: 14px;
+			}
+			
+			#tablex tr:hover {
+				cursor:pointer;
+				background-color:#93e2fab5;
+			}
+			
+			#details {
+				cursor:pointer;
+			}
+			
+			td {
+				padding-right:7px;
+				border-bottom:1px solid black;
+			}
+			
+			
+			#tr11, #tr21 {
+			background-color:#2bfc2ecc;
+			}
+			#tr12, #tr22 {
+			background-color:#89fc2bcc;
+			}
+			#tr13, #tr23 {
+			background-color:#defc2bcc;
+			}
+			#tr14, #tr24 {
+			background-color:#fcbe2bcc;
+			}
+			#tr15, #tr25 {
+			background-color:#fc692bcc;
+			}
+			#tr16, #tr26 {
+			background-color:#fc2b2bcc;
+			}
+			
+			
+			
+			#tr11:hover, #tr12:hover, #tr13:hover, #tr14:hover, #tr15:hover, #tr16:hover,
+			#tr21:hover, #tr22:hover, #tr23:hover, #tr24:hover, #tr25:hover, #tr26:hover
+			{
+				cursor: pointer;
+				background-color:white;
+			}
+			
+
+		</style>
+		
+		<script>
+		
+		
+xbook = {
+1:'MATTHIEU',
+2:'MARC',
+3:'LUC',
+4:'JEAN',
+5:'ACTES',
+6:'ROMAINS',
+7:'1CORINTHIENS',
+8:'2CORINTHIENS',
+9:'GALATES',
+10:'EPHESIENS',
+11:'PHILIPPIENS',
+12:'COLOSSIENS',
+13:'1THESSALONICIENS',
+14:'2THESSALONICIENS',
+15:'1TIMOTHEE',
+16:'2TIMOTHEE',
+17:'TITE',
+18:'PHILEMON',
+19:'HEBREUX',
+20:'JACQUES',
+21:'1PIERRE',
+22:'2PIERRE',
+23:'1JEAN',
+24:'2JEAN',
+25:'3JEAN',
+26:'JUDAS',
+27:'APOCALYPSE'
+}
+
+
+
+// 
+
+
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+
+	if (document.activeElement != document.getElementById('input_info'))
+	{
+
+		e = e || window.event;
+
+		if (e.keyCode == '39') { // -->
+		
+			//touche_clavier = "fleche"
+			touche_clavier = "1" //BEST LEVENSHTEIN
+			go()
+		}
+		else if (e.keyCode == '97' || e.keyCode == '32') { // 1
+		
+			touche_clavier = "1"
+			go()
+		}
+		else if (e.keyCode == '98') { // 2
+		
+			touche_clavier = "2"
+			go()
+		}
+		else if (e.keyCode == '99') { // 3
+		
+			touche_clavier = "3"
+			go()
+		}
+		else if (e.keyCode == '100') { // 4
+			
+			touche_clavier = "4"
+			go()
+		}
+		else if (e.keyCode == '101') { // 5
+			
+			touche_clavier = "5"
+			go()
+		}
+		else if (e.keyCode == '102') { // 6
+			
+			
+			touche_clavier = "6"
+			go()
+		}
+		
+	
+	}
+    
+}
+
+
+
+function make0() {
+
+outlog(livre, chapitre, verset, "");
+verset++;
+document.getElementById('input_info').value = 
+				'livre='	+livre		+' '+
+				'chapitre='	+chapitre	+' '+
+				'verset='	+verset		+' '+
+				'mot='		+mot
+}
+
+
+function outlog(livre, chapitre, verset, texte){
+
+	texte = texte.replace(/ +$/,"")
+	new_vers = livre+':'+chapitre+':'+verset+':'+xbook[livre]+':1:2022:ERASME '+texte
+	console.log(new_vers)
+	ajouter_verset(new_vers)
+}
+
+
+
+
+function ajouter_verset(verset) {
+
+	element = document.getElementById('boxdown')
+	xx = document.createElement("div")
+	xx.textContent = verset
+	element.prepend(xx)
+}
+
+
+
+function maxverset(livre, chapitre)
+{
+
+	vul_nova	= nova_vulgata[livre][chapitre].length-1;
+	vu_web		= vulgate_web[livre][chapitre].length-1;
+
+	
+	return Math.max(vul_nova, vu_web);
+}
+
+
+
+function minmaxmot(livre, chapitre, verset)
+{
+
+	if (nova_vulgata[livre][chapitre][verset] != null) 
+		vul_nova = nova_vulgata[livre][chapitre][verset].split(/\s+/).length
+		
+	if (vulgate_web[livre][chapitre][verset] != null) 
+		vu_web = vulgate_web[livre][chapitre][verset].split(/\s+/).length
+	
+	
+	vmin = Math.min( vul_nova, vu_web );
+	vmax = Math.max( vul_nova, vu_web );
+	
+
+	return [vmin, vmax];
+}
+
+
+
+
+
+function getmotfin(livre, chapitre, verset)
+{
+	
+	v1 = []
+	v2 = []
+	v3 = []
+
+	
+	if (nova_vulgata[livre][chapitre][verset] != null) 
+	{
+		vulg	= rmponc(nova_vulgata[livre][chapitre][verset])
+		motd	= vulg.split(/\s+/)
+		motl	= motd.length;
+		v1.push(motd[motl-3]); v2.push(motd[motl-2]); v3.push(motd[motl-1]);
+	}
+	
+	if (vulgate_web[livre][chapitre][verset] != null) 
+	{
+		vulg	= rmponc(vulgate_web[livre][chapitre][verset])
+		motd	= vulg.split(/\s+/)
+		motl	= motd.length;
+		v1.push(motd[motl-3]); v2.push(motd[motl-2]); v3.push(motd[motl-1]);
+	}
+
+	
+	 return [v1, v2, v3]
+	
+}
+
+
+function getmotdebut(livre, chapitre, verset)
+{
+	
+	v1 = []
+	v2 = []
+	v3 = []
+
+	
+	if (nova_vulgata[livre][chapitre][verset] != null) 
+	{
+		vulg	= rmponc(nova_vulgata[livre][chapitre][verset])
+		motd	= vulg.split(/\s+/)
+		motl	= motd.length;
+		v1.push(motd[0]); v2.push(motd[1]); v3.push(motd[2]);
+	}
+	
+	if (vulgate_web[livre][chapitre][verset] != null) 
+	{
+		vulg	= rmponc(vulgate_web[livre][chapitre][verset])
+		motd	= vulg.split(/\s+/)
+		motl	= motd.length;
+		v1.push(motd[0]); v2.push(motd[1]); v3.push(motd[2]);
+	}
+
+	
+	 return [v1, v2, v3]
+	
+}
+
+
+
+
+
+function rmponc (info)
+{
+	//casse & accent OK !
+	info	= info.toLowerCase();
+	info	= info.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+
+	//ponctuation & debut & fin OK !
+	info	= info.replace(/[\-\—\\+\/\,\!\"\'():;\.\=\?\[\]\^\{\|\}¨\«®°\»\—\–\‘’“”\…™•]/gi,"");
+	
+	//espacement OK !
+	info	= info.replace(/ +/g," ")
+	info	= info.replace(/^ +| +$/g,"")
+
+
+
+	//DICO FILTER
+	
+	info = info.replace(/&/gi,'et');
+	info = info.replace(/œ/gi,'oe');
+	info = info.replace(/v/gi,'u');
+	
+	info = info.replace(/j/gi,'i');
+	
+	/*
+	info = info.replace(/sainct/gi,'saint');
+	info = info.replace(/esperit/gi,'esprit');
+	info = info.replace(/lenfantelet/gi,'lenfant');
+	
+	info = info.replace(/estoient/gi,'etaient');
+	info = info.replace(/estoit/gi,'etait');
+	info = info.replace(/ilz/gi,'ils');
+	
+	info = info.replace(/lieve/gi,'leve');
+	info = info.replace(/toy/gi,'toi');
+	
+	info = info.replace(/baptizez/gi,'baptisez');
+	info = info.replace(/jordan/gi,'jourdain');
+	
+	info = info.replace(/point/gi,'pas');
+	info = info.replace(/plus/gi,'pas');
+	
+	info = info.replace(/&/gi,'et');
+	info = info.replace(/œ/gi,'oe');
+	
+	info = info.replace(/y/gi,'i');
+	*/
+	
+	
+	
+	
+	return info;
+}
+
+
+
+/*
+function dico_filter (info)
+{
+	
+	info = info.replace(/sainct/gi,'saint');
+	info = info.replace(/esperit/gi,'esprit');
+	info = info.replace(/lenfantelet/gi,'lenfant');
+	
+	info = info.replace(/estoient/gi,'etaient');
+	info = info.replace(/estoit/gi,'etait');
+	info = info.replace(/ilz/gi,'ils');
+	
+	info = info.replace(/lieve/gi,'leve');
+	info = info.replace(/toy/gi,'toi');
+	
+	info = info.replace(/baptizez/gi,'baptisez');
+	info = info.replace(/jordan/gi,'jourdain');
+	
+	info = info.replace(/point/gi,'pas');
+	info = info.replace(/plus/gi,'pas');
+	
+	info = info.replace(/&/gi,'et');
+	info = info.replace(/œ/gi,'oe');
+
+	return info
+}
+*/
+
+
+function compare(s1, s2) {
+
+      var longer = s1;
+      var shorter = s2;
+      if (s1.length < s2.length) {
+        longer = s2;
+        shorter = s1;
+      }
+      var longerLength = longer.length;
+      if (longerLength == 0) {
+        return 1.0;
+      }
+	  else
+		return ((longerLength - calculeLevenshteinDistance(longer, shorter)) / parseFloat(longerLength)) * 100;
+}
+
+calculeLevenshteinDistance = (a, b) => {
+
+  	const c = a.length + 1;
+  	const d = b.length + 1;
+  	const r = Array(c);
+  	for (let i = 0; i < c; ++i) r[i] = Array(d);
+    for (let i = 0; i < c; ++i) r[i][0] = i;
+    for (let j = 0; j < d; ++j) r[0][j] = j;
+    for (let i = 1; i < c; ++i) {
+        for (let j = 1; j < d; ++j) {
+            const s = (a[i - 1] === b[j - 1] ? 0 : 1);
+          	r[i][j] = Math.min(r[i - 1][j] + 1, r[i][j - 1] + 1, r[i - 1][j - 1] + s);
+        }
+    }
+  	return r[a.length][b.length];
+};
+
+
+
+
+		</script>
+		
+		
+	</head>
+
+
+
+<body>
+		
+		
+	<div id="up">
+		<input id="input_info" width="100%" value="livre=1 chapitre=1 verset=1 mot=0"  onkeypress="if (event.keyCode==13){go()}">
+		
+		<div id="boxup">
+			<div id="bibles">
+
+				<div id="intro">
+					V E R S I F I C A T E U R  ..  LEVENSHTEIN
+				</div>
+				<div><i>basé sur la distance de Levenshtein</i></div>
+				<br><div>
+				Projet permettant la versification de la Vulgate d'ÉRASME.
+				</div>
+			</div>
+
+			
+			
+		</div>
+	</div>
+
+
+	<div id="down">
+		<div id="boxdown">
+		
+		</div>
+	
+	</div>
+
+
+
+
+
+<script>
+
+
+touche_clavier = ""
+
+function go()
+{
+
+//LCVM
+lcvm_info	= document.getElementById('input_info').value
+livre		= lcvm_info.match(/livre=([0-9]+)/)[1]
+chapitre	= lcvm_info.match(/chapitre=([0-9]+)/)[1]
+verset		= lcvm_info.match(/verset=([0-9]+)/)[1]
+mot			= lcvm_info.match(/mot=([0-9]+)/)[1]
+
+//int_v
+verset = parseInt(verset)
+
+if (touche_clavier != "")
+{
+
+
+        if (touche_clavier == 1)
+        {
+                mot     =       ar[ar.length-1].split('|-|')[2]
+                texte   =       ar[ar.length-1].split('|-|')[3]
+                outlog(livre, chapitre, verset, texte)
+                verset++
+        }
+
+        else if (touche_clavier == 2)
+        {
+                mot     =       ar[ar.length-2].split('|-|')[2]
+                texte   =       ar[ar.length-2].split('|-|')[3]
+                outlog(livre, chapitre, verset, texte)
+                verset++
+        }
+
+        else if (touche_clavier == 3)
+        {
+                mot     =       ar[ar.length-3].split('|-|')[2]
+                texte   =       ar[ar.length-3].split('|-|')[3]
+                outlog(livre, chapitre, verset, texte)
+                verset++
+        }
+
+        else if (touche_clavier == 4)
+        {
+                mot     =       ar[ar.length-4].split('|-|')[2]
+                texte   =       ar[ar.length-4].split('|-|')[3]
+                outlog(livre, chapitre, verset, texte)
+                verset++
+        }
+
+        else if (touche_clavier == 5)
+        {
+                mot     =       ar[ar.length-5].split('|-|')[2]
+                texte   =       ar[ar.length-5].split('|-|')[3]
+                outlog(livre, chapitre, verset, texte)
+                verset++
+        }
+
+        else if (touche_clavier == 6)
+        {
+                mot     =       ar[ar.length-6].split('|-|')[2]
+                texte   =       ar[ar.length-6].split('|-|')[3]
+                outlog(livre, chapitre, verset, texte)
+                verset++
+        }
+		
+		else
+		{
+				touche_clavier = parseInt(touche_clavier)
+				
+				mot     =       ar[ar.length-touche_clavier].split('|-|')[2]
+                texte   =       ar[ar.length-touche_clavier].split('|-|')[3]
+                outlog(livre, chapitre, verset, texte)
+                verset++
+			
+			
+		}
+			
+	mot = parseInt(mot)+1
+		
+	touche_clavier = ""
+}
+
+
+
+
+
+for (; chapitre != erasme_1527[livre].length ; chapitre++)
+{
+	
+	
+	max_verset = maxverset(livre, chapitre)
+	
+	erasme_ch = erasme_1527[livre][chapitre].slice(1)
+	
+	//erasme_ch.shift() // !remove ALL COPY VAR 
+	
+	//tousmots		= erasme_ch.join(' ').match(/\S+/g)
+	tousmots		= erasme_ch.match(/\S+/g)
+	//tousmots_rm		= rmponc(erasme_ch.join(' '))
+	tousmots_rm		= rmponc(erasme_ch)
+	tousmots_rm		= tousmots_rm.match(/\S+/g)
+	
+	//check length
+	if (tousmots_rm.length  != tousmots.length)
+	{
+		alert('!!! ERROR TOUSMOTS !!!')
+		console.log('!!! ERROR TOUSMOTS !!!')
+		console.log(tousmots.join(' '))
+		console.log(tousmots_rm.join(' '))
+	}
+	
+	
+	
+	
+	
+	
+	
+	position	= 0
+	allverset	= 0
+	texte		= ""
+	
+
+	//mot min, mot max
+	mot_min_max = minmaxmot(livre,chapitre,verset)
+	motmin	= mot_min_max[0]
+	motmax	= mot_min_max[1]
+	motmoy	= Math.round((motmin+motmax)/2)
+	
+	
+	troismotsfin	= getmotfin(livre, chapitre, verset)
+	troismotsdeb	= getmotdebut(livre, chapitre, verset+1)
+	
+	fin1 = troismotsfin[0].join(' ')
+	fin2 = troismotsfin[1].join(' ')
+	fin3 = troismotsfin[2].join(' ')
+	
+	deb1 = troismotsdeb[0].join(' ')
+	deb2 = troismotsdeb[1].join(' ')
+	deb3 = troismotsdeb[2].join(' ')
+	
+	
+	for (; mot != tousmots.length ; mot++)
+	{
+		
+		
+		
+		if (position > motmax+5 && verset < max_verset)
+		{
+
+			mot	= mot - position;
+				
+
+			
+			document.getElementById('input_info').value = 
+				'livre='	+livre		+' '+
+				'chapitre='	+chapitre	+' '+
+				'verset='	+verset		+' '+
+				'mot='		+mot
+			
+
+				motn		= mot
+				texte		= ""
+				texte_cmp	= ""
+				
+				
+				
+				
+				
+				if (nova_vulgata[livre][chapitre][verset] != null) 
+				{
+					lef		= rmponc(nova_vulgata[livre][chapitre][verset])
+
+				} else lef = ""
+	
+	
+				if (vulgate_web[livre][chapitre][verset] != null) 
+				{
+					gen		= rmponc(vulgate_web[livre][chapitre][verset])
+					
+				}else gen = ""
+
+				
+				
+				
+				olivetan_1_fin = ""
+				olivetan_1_deb = ""
+				
+				olivetan_2_fin = ""
+				olivetan_2_deb = ""
+
+				olivetan_3_fin = ""
+				olivetan_3_deb = ""
+
+				olivetan_4_fin = ""
+				olivetan_4_deb = ""	
+				
+				olivetan_5_fin = ""
+				olivetan_5_deb = ""	
+
+				olivetan_6_fin = ""
+				olivetan_6_deb = ""	
+				
+				ar = []
+				
+				
+			for (position = 1 ; position != motmax+13 ; position++)
+			{
+				//console.log(motn+' '+motmax+' '+tousmots[motn])
+				texte		+= tousmots[motn]
+				texte_cmp	+= tousmots_rm[motn]
+				
+				levenshtein_pourc = compare( texte_cmp , lef )
+				ar.push(
+							levenshtein_pourc	+ '|-|'+
+							mot					+ '|-|'+
+							motn				+ '|-|'+
+							texte				+ '|-|'+
+							tousmots[motn+1]+' '+tousmots[motn+2]+' '+tousmots[motn+3]+' '+tousmots[motn+4]+' '+tousmots[motn+5]+' '+tousmots[motn+6]+' ...'
+						)
+						
+				levenshtein_pourc = compare( texte_cmp , gen )
+				ar.push(
+							levenshtein_pourc	+ '|-|'+
+							mot					+ '|-|'+
+							motn				+ '|-|'+
+							texte				+ '|-|'+
+							tousmots[motn+1]+' '+tousmots[motn+2]+' '+tousmots[motn+3]+' '+tousmots[motn+4]+' '+tousmots[motn+5]+' '+tousmots[motn+6]+' ...'
+						)
+				
+				
+				
+				
+				
+				
+				texte		+= ' ';
+				texte_cmp	+= ' ';
+				motn++
+			}
+			
+			
+			console.log('\n ---> SEND LEVENSHTEIN SORT COMPARE')
+			ar = ar.sort(new Intl.Collator('en',{numeric:true, sensitivity:'accent'}).compare)
+			
+			
+			olivetan_1_fin =	ar[ar.length-1].split('|-|')[3]
+			olivetan_1_deb =	ar[ar.length-1].split('|-|')[4]
+			
+			olivetan_2_fin =	ar[ar.length-2].split('|-|')[3]
+			olivetan_2_deb =	ar[ar.length-2].split('|-|')[4]
+			
+			olivetan_3_fin =	ar[ar.length-3].split('|-|')[3]
+			olivetan_3_deb =	ar[ar.length-3].split('|-|')[4]
+			
+			olivetan_4_fin =	ar[ar.length-4].split('|-|')[3]
+			olivetan_4_deb =	ar[ar.length-4].split('|-|')[4]
+			
+			olivetan_5_fin =	ar[ar.length-5].split('|-|')[3]
+			olivetan_5_deb =	ar[ar.length-5].split('|-|')[4]
+			
+			olivetan_6_fin =	ar[ar.length-6].split('|-|')[3]
+			olivetan_6_deb =	ar[ar.length-6].split('|-|')[4]
+			
+			
+			id_bible = document.getElementById('bibles')
+			id_bible.innerHTML = `
+			
+			<b><a target="_blank" href="../olivetan/comparer/`+livre+`-`+chapitre+`.html#V`+verset+`">`+xbook[livre]+` `+chapitre+`:`+verset+`</a></b>
+			<button onclick="make0();" style="margin-left:5px;height:20px;width:40px">0</button>
+<table id="table1" cellspacing="0">
+    <tbody>
+	
+		<tr onmouseover="document.getElementById('tr21').style.background = 'white';" onmouseout="document.getElementById('tr21').style.background = '';" onclick="touche_clavier=1;go();" id="tr11">
+            <td nowrap="">ERASME 1</td><td>`+olivetan_1_fin+`</td>
+        </tr>
+		
+		<tr onmouseover="document.getElementById('tr22').style.background = 'white';" onmouseout="document.getElementById('tr22').style.background = '';" onclick="touche_clavier=2;go();" id="tr12">
+            <td nowrap="">ERASME 2</td><td>`+olivetan_2_fin+`</td>
+        </tr>
+		
+		<tr onmouseover="document.getElementById('tr23').style.background = 'white';" onmouseout="document.getElementById('tr23').style.background = '';" onclick="touche_clavier=3;go();" id="tr13">
+            <td nowrap="">ERASME 3</td><td>`+olivetan_3_fin+`</td>
+        </tr>
+		
+		<tr onmouseover="document.getElementById('tr24').style.background = 'white';" onmouseout="document.getElementById('tr24').style.background = '';" onclick="touche_clavier=4;go();" id="tr14">
+            <td nowrap="">ERASME 4</td><td>`+olivetan_4_fin+`</td>
+        </tr>
+		
+		<tr onmouseover="document.getElementById('tr25').style.background = 'white';" onmouseout="document.getElementById('tr25').style.background = '';" onclick="touche_clavier=5;go();" id="tr15">
+            <td nowrap="">ERASME 5</td><td>`+olivetan_5_fin+`</td>
+        </tr>
+		
+		<tr onmouseover="document.getElementById('tr26').style.background = 'white';" onmouseout="document.getElementById('tr26').style.background = '';" onclick="touche_clavier=6;go();" id="tr16">
+            <td nowrap="">ERASME 6</td><td>`+olivetan_6_fin+`</td>
+        </tr>
+		
+        
+		<tr>
+            <td nowrap="">NOVA_VULGATA</td><td>`+nova_vulgata[livre][chapitre][verset]+`</td>
+        </tr>
+
+        <tr>
+            <td nowrap="">VULGATE_WEB</td><td>`+vulgate_web[livre][chapitre][verset]+`</td>
+        </tr>
+    </tbody>
+</table>`
+			
+			
+		
+
+			other = ""
+			nkeyclick = 1
+			for (xo = ar.length-1 ; xo != 0 ; xo--)
+			{
+				ar_s = ar[xo].split('|-|')
+				
+				
+				other += `<tr onclick="touche_clavier=`+nkeyclick+`;go();"><td>`+ar_s[0]+`</td><td>`+ar_s[3]+`</td><td>`+ar_s[4]+`</td></tr>`
+				
+				nkeyclick++
+			}
+			
+			id_bible.innerHTML += `<details id="details"><table id="tablex">`+other+`</table></details><br>`
+			
+			
+			
+			id_bible.innerHTML += `<b><a target="_blank" href="../olivetan/comparer/`+livre+`-`+chapitre+`.html#V`+verset+`">`+xbook[livre]+` `+chapitre+`:`+(verset+1)+`</a></b>	
+<table id="table2" cellspacing="0">
+    <tbody>
+		
+		<tr onclick="touche_clavier=1;go();" id="tr21">
+            <td nowrap="">ERASME 1</td><td>`+olivetan_1_deb+`</td>
+        </tr>
+		
+		<tr onclick="touche_clavier=2;go();" id="tr22">
+            <td nowrap="">ERASME 2</td><td>`+olivetan_2_deb+`</td>
+        </tr>
+		
+		<tr onclick="touche_clavier=3;go();" id="tr23">
+            <td nowrap="">ERASME 3</td><td>`+olivetan_3_deb+`</td>
+        </tr>
+		
+		<tr onclick="touche_clavier=4;go();" id="tr24">
+            <td nowrap="">ERASME 4</td><td>`+olivetan_4_deb+`</td>
+        </tr>
+		
+		<tr onclick="touche_clavier=5;go();" id="tr25">
+            <td nowrap="">ERASME 5</td><td>`+olivetan_5_deb+`</td>
+        </tr>
+		
+		<tr onclick="touche_clavier=6;go();" id="tr26">
+            <td nowrap="">ERASME 6</td><td>`+olivetan_6_deb+`</td>
+        </tr>
+		
+      
+		<tr>
+            <td nowrap="">NOVA_VULGATA</td><td>`+nova_vulgata[livre][chapitre][verset+1]+`</td>
+        </tr>
+		
+        <tr>
+            <td nowrap="">VULGATE_WEB</td><td>`+vulgate_web[livre][chapitre][verset+1]+`</td>
+        </tr>
+		
+		
+    </tbody>
+</table>
+
+			
+			`
+		
+			
+			//out function
+			return false;
+			
+		}
+		else
+			position++
+		
+	
+		console.log('')
+		
+
+		//LOG 1
+		console.log(
+							'L1-INFO : '+xbook[livre]+':'+chapitre+':'+verset+'-->'+max_verset+' || '	
+							+'('+motmin+') |'+motmoy+'| ('+motmax+')'+' POSI='+position+' MOTN='+mot+' MOT='+tousmots[mot]+' MOT_R='+tousmots_rm[mot]
+
+						)		
+
+		//LOG 2
+		if (position == 1)
+		{
+			console.log('L2-AUTRE : ['+fin1+'] '+'['+fin2+'] '+'['+fin3+'] ' )
+			console.log('L2-AUTRE : ['+deb1+'] '+'['+deb2+'] '+'['+deb3+'] ' )
+		}
+		
+		
+		
+		//LOG 3
+		if (tousmots_rm[mot-3])
+		{
+			console.log('L3-OLIVE : ['+tousmots_rm[mot-2]+' '+tousmots_rm[mot-1]+' '+tousmots_rm[mot]+']' )
+			console.log('L3-OLIVE : ['+tousmots_rm[mot+1]+' '+tousmots_rm[mot+2]+' '+tousmots_rm[mot+3]+']' )
+		}
+		
+		
+		
+
+		
+		
+		
+		
+		
+		texte += tousmots[mot] + " ";
+		
+		
+		if (
+					position > motmin-4 	&& 
+					position < motmax+4		&& 
+					verset < max_verset		&& 
+					tousmots_rm[mot+3]		&&
+					tousmots_rm[mot-3]
+			
+				)
+			{
+			
+				
+				//TEST -
+				test = 0
+				
+				
+				if (tousmots_rm[mot].length == 1 && !fin3.match(/^\w | \w | \w$/))
+				{
+					console.log
+					(
+						'OLIVE - 1 : '+tousmots_rm[mot]+' && '+
+						'AUTRE ! 1 : '+fin3
+					
+					)
+				}
+				
+				
+				
+				else if 
+					(
+						fin3.indexOf(tousmots_rm[mot]) != -1	&& 
+						fin2.indexOf(tousmots_rm[mot-1]) != -1	&&
+						
+						deb1.indexOf(tousmots_rm[mot+1]) != -1	&& 
+						deb2.indexOf(tousmots_rm[mot+2]) != -1
+					) {test=1}
+										
+				else if
+					(
+						fin3.indexOf(tousmots_rm[mot])	 != -1	&& 
+						fin1.indexOf(tousmots_rm[mot-2]) != -1	&&
+						
+						deb1.indexOf(tousmots_rm[mot+1]) != -1	&& 
+						deb2.indexOf(tousmots_rm[mot+2]) != -1
+					) {test=2}	
+				
+				else if
+					(
+						fin3.indexOf(tousmots_rm[mot]) != -1	&& 
+						fin2.indexOf(tousmots_rm[mot-1]) != -1	&&
+						fin1.indexOf(tousmots_rm[mot-2]) != -1	&&
+
+						deb1.indexOf(tousmots_rm[mot+1]) != -1
+
+					) {test=3}
+									
+				else if
+					(
+						fin3.indexOf(tousmots_rm[mot])	 != -1	&& 
+						
+						deb1.indexOf(tousmots_rm[mot+1]) != -1	&& 
+						deb2.indexOf(tousmots_rm[mot+2]) != -1	&&
+						deb2.indexOf(tousmots_rm[mot+3]) != -1
+					) {test=4}	
+				
+				
+	
+	
+				
+				else if
+					(
+						fin3.indexOf(tousmots_rm[mot].slice(0,2)) != -1	&& 
+						fin2.indexOf(tousmots_rm[mot-1].slice(0,2)) != -1	&&
+						fin1.indexOf(tousmots_rm[mot-2].slice(0,2)) != -1	&&
+						
+						deb1.indexOf(tousmots_rm[mot+1].slice(0,2)) != -1	&& 
+						deb2.indexOf(tousmots_rm[mot+2].slice(0,2)) != -1	&&
+						deb3.indexOf(tousmots_rm[mot+3].slice(0,2)) != -1
+					) {test=5}
+				
+				else if
+					(
+						fin3.indexOf(tousmots_rm[mot].slice(-2)) != -1		&& 
+						fin2.indexOf(tousmots_rm[mot-1].slice(-2)) != -1	&&
+						fin1.indexOf(tousmots_rm[mot-2].slice(-2)) != -1	&&
+						
+						deb1.indexOf(tousmots_rm[mot+1].slice(-2)) != -1	&& 
+						deb2.indexOf(tousmots_rm[mot+2].slice(-2)) != -1	&&
+						deb3.indexOf(tousmots_rm[mot+3].slice(-2)) != -1
+					) {test=6}
+				
+
+
+
+
+				
+				else if
+					(
+						fin3.indexOf(tousmots_rm[mot]) != -1	&& 
+						
+
+						(
+							tousmots[mot].indexOf('?') != -1
+						||
+							tousmots[mot].indexOf('.') != -1
+						||
+							tousmots[mot].indexOf(';') != -1
+						||
+							tousmots[mot].indexOf(':') != -1
+						)												&&
+						
+						
+						
+						deb1.indexOf(tousmots_rm[mot+1]) != -1			&& 
+						deb2.indexOf(tousmots_rm[mot+2]) != -1
+						
+					) {test=7}
+				
+				else if
+					(
+						fin3.indexOf(tousmots_rm[mot])   != -1	&&
+						fin2.indexOf(tousmots_rm[mot-1]) != -1	&&
+						
+						(
+							tousmots[mot].indexOf('?') != -1
+						||
+							tousmots[mot].indexOf('.') != -1
+						||
+							tousmots[mot].indexOf(';') != -1
+						||
+							tousmots[mot].indexOf(':') != -1
+						)												&&
+						
+						deb1.indexOf(tousmots_rm[mot+1]) != -1
+
+					) {test=8}
+					
+				
+				
+				
+				if (test != 0)
+				{
+					
+					console.log('bY TEST: '+test)
+					outlog(livre, chapitre, verset, texte)
+					
+					verset++;
+					
+					texte = "";
+						
+					
+					
+					if (verset < max_verset)
+					{
+						
+						//mot min, mot max
+						mot_min_max = minmaxmot(livre,chapitre,verset)
+						motmin	= mot_min_max[0]
+						motmax	= mot_min_max[1]
+						motmoy	= Math.round((motmin+motmax)/2)
+						
+						
+						troismotsfin	= getmotfin(livre, chapitre, verset)
+						troismotsdeb	= getmotdebut(livre, chapitre, verset+1)
+						
+						fin1 = troismotsfin[0].join(' ')
+						fin2 = troismotsfin[1].join(' ')
+						fin3 = troismotsfin[2].join(' ')
+						
+						deb1 = troismotsdeb[0].join(' ')
+						deb2 = troismotsdeb[1].join(' ')
+						deb3 = troismotsdeb[2].join(' ')
+						
+						
+					}
+					else
+						allverset=1;
+
+				
+					position = 0;
+					
+					
+					
+				}
+
+				
+			}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			
+			
+			
+			
+			
+			}
+			
+			
+			//END ALL MOTS
+			outlog(livre, chapitre, verset, texte) //put end texte, end verse
+			
+			document.getElementById('input_info').value = 
+				'livre='	+livre		+' '+
+				'chapitre='	+chapitre	+' '+
+				'verset='	+verset		+' '+
+				'mot='		+mot
+			mot		= 0; //init
+			verset	= 1 //init
+		
+		
+			
+	}
+	
+	
+	
+	
+}
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
